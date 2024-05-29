@@ -70,7 +70,7 @@ int main(int argc, char *argv[])
 
     protocol.process(line);//sending login frame to the server
 
-    //main thread gets input from keyboard as log as the server-client connection is active
+    //main thread gets input from keyboard as long as the server-client connection is active
     while (!terminate_keyboard_thread) //while logged in
     {
         const short bufsize = 1024;
