@@ -21,6 +21,7 @@ bool StompProtocol::process(string &command)
 
     int first_space = command.find_first_of(' ');
     string command_type = command.substr(0, first_space);
+    
     if (command_type == "login")
     {
         std::stringstream strem(command);
@@ -59,6 +60,7 @@ bool StompProtocol::process(string &command)
         subId++;
         receiptId++;
     }
+        
     else if (command_type == "exit")
     {
         string topic = command.substr(first_space + 1);
@@ -85,6 +87,7 @@ bool StompProtocol::process(string &command)
             receiptId++;
         }
     }
+        
     else if (command_type == "report")
     {
         names_and_events file = parseEventsFile(command.substr(first_space + 1));
@@ -95,8 +98,9 @@ bool StompProtocol::process(string &command)
             return true;
         }
     }
+        
     else if (command_type == "summary")
-    { // command type = summarize
+    { 
         std::stringstream s(command);
         std::string segment;
         std::vector<std::string> command_vec;
