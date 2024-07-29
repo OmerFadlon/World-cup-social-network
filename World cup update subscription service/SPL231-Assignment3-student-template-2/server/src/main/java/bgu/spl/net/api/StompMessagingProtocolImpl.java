@@ -89,10 +89,10 @@ public class StompMessagingProtocolImpl implements StompMessagingProtocol<String
                     connections.send(connectionId,
                             "ERROR\nmessage:User isn't subscribed to this topic\n\nThe message:\n-----\n"
                                     + thisMessageForErrorFrame + "\n-----\n\n");
-                    // close connection????
+                    // close connection
                     connections.disconnect(connectionId);
                     shouldTerminate = true;
-                } else {// can he sends to a topic that doesn't exist?????
+                } else { //sending a message to a new channel
                     // connections.send(topic, message);
                     ConcurrentHashMap<Integer, Integer> map = (ConcurrentHashMap<Integer, Integer>) connections.getMappingByTopic().get(topic);
                     Iterator<ConcurrentHashMap.Entry<Integer, Integer>> itr = map.entrySet().iterator();
