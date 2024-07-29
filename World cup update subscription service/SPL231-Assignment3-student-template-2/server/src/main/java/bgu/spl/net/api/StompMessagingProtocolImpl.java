@@ -30,7 +30,7 @@ public class StompMessagingProtocolImpl implements StompMessagingProtocol<String
                 String userName = arrOfMessage[3].substring(6);
                 String passcode = arrOfMessage[4].substring(9);
                 // client already logged in
-                if (loggedIn) { // not neccecary(took  care of that in the client section)
+                if (loggedIn) { 
                     connections.send(connectionId, "The client is already logged in, log out before trying again");
                 }
                 // new user
